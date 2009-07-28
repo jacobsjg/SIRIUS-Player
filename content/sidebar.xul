@@ -1,0 +1,114 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="chrome://global/skin/" type="text/css" ?>
+<?xml-stylesheet href="chrome://browser/skin/browser.css" type="text/css" ?>
+<?xml-stylesheet href="chrome://siriusplayer/skin/overlay.css" type="text/css"?>
+<!DOCTYPE overlay SYSTEM "chrome://siriusplayer/locale/siriusplayer.dtd">
+
+<page id="siriusplayer-sidebar" title="&siriusplayerSidebar.label;" onload="siriusplayer.onLoad()" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+  <script src="sidebar.js"/>
+  <vbox id="siriusplayer-sidebar-legalnotagree" valign="middle" flex="1">
+    <label id="siriusplayer-sidebar-legalnotagree-title">SIRIUS Player will not function until you agree to the legal statement.</label>
+    <separator />
+    <label id="siriusplayer-sidebar-legalnotagree-goto-instruction">Click the Settings button below to go to the legal statement.</label>
+    <separator />
+    <button id="siriusplayer-sidebar-legalnotagree-settingsbutton" label="Settings" oncommand="siriusplayer.player.openPrefs()" />
+  </vbox>
+  <vbox id="siriusplayer-sidebar-loggedout" valign="middle" flex="1">
+    <label id="siriusplayer-sidebar-loggedout-title">SIRIUS Player not logged in.</label>
+    <separator />
+    <label id="siriusplayer-sidebar-loggedout-goto-instruction">Click the Settings button below to set your login settings.  Or click Login to login.</label>
+    <separator />
+    <button id="siriusplayer-sidebar-loggedout-settingsbutton" label="Settings" oncommand="siriusplayer.player.openPrefs()" />
+    <separator />
+    <button id="siriusplayer-sidebar-loggedout-loginbutton" label="Login" oncommand="siriusplayer.player.login()" />
+  </vbox>
+  <vbox id="siriusplayer-sidebar-loggingin" valign="middle" flex="1">
+    <label id="siriusplayer-sidebar-loggingin-title">SIRIUS Player is logging in.</label>
+    <separator />
+    <vbox align="center">
+      <hbox>
+        <image src="chrome://global/skin/icons/loading_16.png" />
+      </hbox>
+      <separator />
+      <label id="siriusplayer-sidebar-loggingin-goto-instruction">Please wait...</label>
+    </vbox>
+  </vbox>
+  <vbox id="siriusplayer-sidebar-badauth" valign="middle" flex="1">
+    <label id="siriusplayer-sidebar-badauth-title">SIRIUS Player login failed.</label>
+    <separator />
+    <label id="siriusplayer-sidebar-badauth-reason">...</label>
+    <separator />
+    <label id="siriusplayer-sidebar-badauth-goto-instruction">Click the Settings button below to set your login settings.</label>
+    <separator />
+    <button id="siriusplayer-sidebar-badauth-settingsbutton" label="Settings" oncommand="siriusplayer.player.openPrefs()" />
+    <separator />
+    <button id="siriusplayer-sidebar-loggedout-loginbutton" label="Try to Login Again" oncommand="siriusplayer.player.login()" />
+  </vbox>
+  <vbox id="siriusplayer-sidebar-area" flex="1">
+    <hbox>
+      <vbox>
+        <vbox>
+          <image id="siriusplayer-sidebar-image" onclick="siriusplayer.openTab(this.href); return false" />
+        </vbox>
+        <vbox>
+          <label id="siriusplayer-sidebar-buylink" class="text-link" onclick="siriusplayer.openTab(this.href); return false">Buy MP3"</label>
+        </vbox>
+      </vbox>
+      <vbox id="siriusplayer-sidebar-content" flex="1">
+        <vbox>
+          <hbox flex="1">
+            <image id="siriusplayer-sidebar-channelimage" src="chrome://siriusplayer/skin/noteicon.png" />
+            <label id="siriusplayer-sidebar-channellabel">Channel</label>
+          </hbox>
+        </vbox>
+        <vbox flex="1" valign="middle">
+          <label id="siriusplayer-sidebar-titlelabel">Title</label>
+          <label id="siriusplayer-sidebar-artistlabel">Artist</label>
+        </vbox>
+        <vbox flex="1" valign="bottom">
+          <hbox align="right">
+            <button id="siriusplayer-sidebar-settingsbutton" label="Settings" oncommand="siriusplayer.player.openPrefs()" />
+            <button id="siriusplayer-sidebar-stopbutton" label="Stop" oncommand="siriusplayer.player.stop()" />
+            <button id="siriusplayer-sidebar-playbutton" label="Play" oncommand="siriusplayer.player.play(siriusplayer.player.channel)" />
+          </hbox>
+          <button id="siriusplayer-sidebar-logoutbutton" label="Logout" oncommand="siriusplayer.player.logout()" />
+        </vbox>
+      </vbox>
+    </hbox>
+
+    <tree id="siriusplayer-sidebar-presets-tree" context="contextpresets" flex="1" rows="2" enableColumnDrag="1" seltype="single" onblur="siriusplayer.blurpresets()" ondblclick="siriusplayer.dblclickedpreset()" onselect="siriusplayer.selectedpreset()">
+      <treecols>
+        <treecol id="channelNumber" label="#" flex="1" fixed="false" persist="hidden ordinal width" />
+        <splitter class="tree-splitter"/>
+        <treecol id="channelName" label="Channel" flex="20" fixed="false" persist="hidden ordinal width" />
+        <splitter class="tree-splitter"/>
+        <treecol id="song" label="Song" flex="100" fixed="false" persist="hidden ordinal width" />
+        <splitter class="tree-splitter"/>
+        <treecol id="artist" label="Artist" flex="25" fixed="false" persist="hidden ordinal width" />
+      </treecols>
+      <treechildren />
+    </tree>
+    <splitter id="siriusplayer-sidebar-treesplitter" />
+    <tree id="siriusplayer-sidebar-all-tree" context="contextall" flex="1" rows="2" enableColumnDrag="1" seltype="single" onblur="siriusplayer.blurall()" ondblclick="siriusplayer.dblclickedall()" onselect="siriusplayer.selectedall()">
+      <treecols>
+        <treecol id="channelNumber" label="#" flex="1" fixed="false" persist="hidden ordinal width" />
+        <splitter class="tree-splitter"/>
+        <treecol id="channelName" label="Channel" flex="20" fixed="false" persist="hidden ordinal width" />
+        <splitter class="tree-splitter"/>
+        <treecol id="song" label="Song" flex="100" fixed="false" persist="hidden ordinal width" />
+        <splitter class="tree-splitter"/>
+        <treecol id="artist" label="Artist" flex="25" fixed="false" persist="hidden ordinal width" />
+      </treecols>
+      <treechildren />
+    </tree>
+  </vbox>
+
+  <popupset>
+     <popup id="contextpresets">
+        <menuitem label="Remove from Presets" oncommand="siriusplayer.presetRemoveRow()" />
+     </popup>
+     <popup id="contextall">
+        <menuitem label="Add to Presets" oncommand="siriusplayer.presetAddRow()" />
+     </popup>
+  </popupset>
+</page>

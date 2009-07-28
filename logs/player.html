@@ -1,0 +1,587 @@
+
+
+
+
+
+
+
+<html>
+<head>
+<title>SIRIUS Satellite Radio - Media Player</title>
+<META HTTP-EQUIV="Expires" CONTENT="-1">
+<META HTTP-EQUIV="PRAGMA" CONTENT="NO-CACHE">
+<meta http-equiv="no-cache">
+<script>
+	var cdnDomain = "";
+	var playerType = "small";
+	var token = "e986e9c0e1f99bee138f7e56a59fd895"
+
+	//stream and genre info for use in generating last 5 song data
+	var currentStream = "SIRIUS XM Pops";
+	var currentStreamNumber = "79";
+	var currentStreamKey = "siriuspops";
+	var currentGenreKey = "classicalMP";
+	var currentCategoryKey = "music";
+	var currentGenre = "";
+</script>
+
+<script src="/c/scripts/common.js" language="javascript"></script>
+<script src="/mp/scripts/player.js" language="javascript"></script>
+<script src="/mp/scripts/player_sizing.js" language="javascript"></script>
+<SCRIPT src="/mp/scripts/ajax_library.js" language="javascript"></SCRIPT>
+<link rel="stylesheet" href="/mp/styles/player.css" type="text/css" />
+
+</head>
+
+<body class="mini" onLoad="pollMPUser('dustywilson')">
+<table width="370" border="0" cellpadding="0" cellspacing="0">
+  <tr>
+    <td colspan="5"><img src="/s.gif" width="370" height="7" alt="" /></td>
+
+  </tr>
+  <tr>
+    <td rowspan="8"><img src="/s.gif" width="5" height="100" alt="" /></td>
+    <td colspan="3">
+    <!-- TITLE:START -->
+      <table width="360" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td><img src="/s.gif" width="71" height="30" alt="" /></td>
+          <td rowspan="2" valign="middle" align="center" width="100%">
+
+					<a href="#" onClick="javascript: openWindow('http://www.sirius.com/siriusinternetradio');"><img
+					src="/mp/i/pg/pl/pg-pl-sir-logo.gif"
+					border="0"></a></td>
+          <td align="left" valign="middle">
+					<a href="javascript: expand('music', 'classicalMP', 'siriuspops', 'e986e9c0e1f99bee138f7e56a59fd895');"><img
+					src="/mp/i/pg/pl/pg-pl-expand.gif" width="71" height="16" alt="EXPAND" /></a></td>
+        </tr>
+        <tr>
+          <td><img src="/s.gif" width="71" height="29" alt="" /></td>
+          <td><img src="/s.gif" width="71" height="29" alt="" /></td>
+        </tr>
+      </table>
+
+    <!-- TITLE:END --></td>
+    <td rowspan="8"><img src="/s.gif" width="5" height="100" alt="" /></td>
+  </tr>
+  <tr>
+    <td rowspan="7"><img src="/s.gif" width="19" height="100" alt="" /></td>
+    <td valign="bottom">
+      <!-- NOW PLAYING TITLE:START -->
+      <img src="/mp/i/pg/pl/pg-pl-now-playing.gif" width="80" hspace="8" height="13" alt="NOW PLAYING" />
+      <!-- NOW PLAYING TITLE:END -->
+
+		</td>
+    <td rowspan="7"><img src="/s.gif" width="19" height="100" alt="" /></td>
+  </tr>
+  <tr>
+    <td width="322">
+      <!-- NOW PLAYING:START -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+
+var noLongerListeningDiv = 'NoLongerListening';
+var stillListeningDiv = 'StillListening';
+var transparentDiv = 'Transparent';
+var noLongerListeningTimeout = 5 * 60 * 1000;
+var noLongerListeningTimer;
+var stillListeningSoundAlertTimeout1 = noLongerListeningTimeout / 2;
+var stillListeningSoundAlertTimeout2 = noLongerListeningTimeout - 30000;
+var stillListeningSoundAlertTimer1;
+var stillListeningSoundAlertTimer2;
+var stillListeningTimeout = 90 * 60 * 1000;
+var stillListeningTimer;
+
+window.setTimeout("isUserStillListening()", stillListeningTimeout);
+
+function isUserStillListening() {
+	trackLink("StillListening_sent");
+    clearTimeout(stillListeningTimer);
+    clearTimeout(noLongerListeningTimer);
+    document.getElementById(transparentDiv).style.display = 'inline';
+    document.getElementById(stillListeningDiv).style.display = 'inline';
+    this.focus();
+    playStillListeningAlert();
+    noLongerListeningTimer = setTimeout("userIsNoLongerListening()", noLongerListeningTimeout);
+    stillListeningSoundAlertTimer1 = setTimeout("playStillListeningAlert()", stillListeningSoundAlertTimeout1);
+    stillListeningSoundAlertTimer2 = setTimeout("playStillListeningAlert()", stillListeningSoundAlertTimeout2);
+}
+
+function userIsListening() {
+	trackLink("StillListening_Yes");
+    clearTimeout(stillListeningTimer);
+    clearTimeout(noLongerListeningTimer);
+    clearTimeout(stillListeningSoundAlertTimer1);
+    clearTimeout(stillListeningSoundAlertTimer2);
+    document.getElementById(stillListeningDiv).style.display = 'none';
+    document.getElementById(transparentDiv).style.display = 'none';
+    stillListeningTimer = setTimeout("isUserStillListening()", stillListeningTimeout);
+}
+
+function userIsNoLongerListening() {
+	trackLink("StillListening_No");
+    clearTimeout(stillListeningTimer);
+    clearTimeout(noLongerListeningTimer);
+    clearTimeout(stillListeningSoundAlertTimer1);
+    clearTimeout(stillListeningSoundAlertTimer2);
+    document.getElementById(stillListeningDiv).style.display = 'none';
+	location.href = "/sirius/servlet/MediaPlayer?activity=selectTab" +
+	    "&tab=&stream=siriuspops&genre=classicalMP" +
+	    "&category=music&status=stop&token=e986e9c0e1f99bee138f7e56a59fd895" +
+		"&timeout=true";
+}
+
+function playStillListeningAlert() {
+	var soundURL = "/mp/i/still_listening_alert.mp3";
+	var embedCode =
+		'<OBJECT id="stillListeningAlertPlayer" width="0" height="0" ' +
+				'CLASSID="CLSID:6BF52A52-394A-11d3-B153-00C04F79FAA6" ' +
+				'type="audio/mpeg">' +
+			'<PARAM NAME="URL" VALUE="' + soundURL + '"> ' +
+			'<PARAM NAME="AutoStart" VALUE="True"> ' +
+			'<PARAM name="uiMode" value="none"> ' +
+			'<EMBED HEIGHT="0" WIDTH="0" TYPE="audio/mpeg"' +
+				'SRC="' + soundURL + '" HIDDEN="true" AUTOSTART="true" ' +
+		'</OBJECT>'
+	gGetElementById("playStillListeningAlert").innerHTML = "";
+	gGetElementById("playStillListeningAlert").innerHTML = embedCode;
+}
+
+function gGetElementById(s) {
+	var obj = (document.getElementById ? document.getElementById(s): document.all[s]);
+	return ((obj == null) ? false : obj);
+}
+
+</script>
+
+
+<div class="bg-now-playing-mac-large">
+  <table width="322" border="0" cellpadding="0" cellspacing="0">
+    <tr>
+      <td><img src="/s.gif" width="15" height="15" alt="" /></td>
+      <td><img src="/s.gif" width="205" height="15" alt="" /></td>
+      <td><img src="/s.gif" width="87" height="15" alt="" /></td>
+      <td><img src="/s.gif" width="15" height="15" alt="" /></td>
+    </tr>
+    <tr>
+
+      <td><img src="/s.gif" width="15" height="45" alt="" /></td>
+      <td colspan="2" valign="top">
+
+	    	<table cellpadding="0" cellspacing="0" border="0" width="292">
+	      	<tr>
+	        	<td><img src="http://www.sirius.com/servlet/BlobServer?blobtable=ImageAsset&blobcol=urlimage&blobkey=id&blobwhere=1224020056100" alt="" /></td>
+	        	<td><span class="t5bb">79</span> | <span class="t5bb">SIRIUS XM Pops</span><br/>
+
+	        		Popular classical music favorites.
+
+	        	</td>
+
+	      	</tr>
+	    	</table>
+
+      </td>
+      <td rowspan="2"><img src="/s.gif" width="15" height="63" alt="" /></td>
+    </tr>
+    <tr>
+      <td><img src="/s.gif" width="15" height="12" alt="" /></td>
+      <td colspan="2"><img src="/s.gif" width="292" height="12" alt="" /></td>
+    </tr>
+
+    <tr>
+      <td><img src="/s.gif" width="15" height="21" alt="" /></td>
+      <td valign="top">
+
+			<OBJECT ID="SIRIUSPlayer" width="1" height="0"
+			standby="Loading Microsoft Windows Media Player components..."
+			type="application/x-oleobject">
+			<PARAM NAME="AutoStart" VALUE="true">
+			<PARAM NAME="FileName" VALUE="http://a334.l2280060625.c22800.g.lm.akamaistream.net/D/334/22800/v0001/reflector:60625?aifp=abcd&partner=sirius_online_player&stream=siriuspops&auth=db.b9bgbuaCa5aMbrd4akcgbHbEaQbtbkdC-bjXPDn-8-vga-CsGRrpybg9n-rjqakaq8mjkTmbt9kcsfldqZk1s8r4s4rl&token=e986e9c0e1f99bee138f7e56a59fd895&login_type=subscriber&login=dustywilson&campaign=null&bitrate=high&wmcache=0&mswmext=.asx">
+			<PARAM NAME="ShowControls" VALUE="False">
+			<PARAM NAME="ShowTracker" VALUE="False">
+			<PARAM NAME="ShowStatusBar" VALUE="False">
+
+			<PARAM NAME="ShowDisplay" VALUE="False">
+			<PARAM NAME="ShowCaptioning" VALUE="False">
+			<PARAM NAME="ShowPositionControls" VALUE="False">
+			<EMBED type="application/x-mplayer2"
+				pluginspage="http://www.microsoft.com/Windows/MediaPlayer/"
+				SRC="http://a334.l2280060625.c22800.g.lm.akamaistream.net/D/334/22800/v0001/reflector:60625?aifp=abcd&partner=sirius_online_player&stream=siriuspops&auth=db.b9bgbuaCa5aMbrd4akcgbHbEaQbtbkdC-bjXPDn-8-vga-CsGRrpybg9n-rjqakaq8mjkTmbt9kcsfldqZk1s8r4s4rl&token=e986e9c0e1f99bee138f7e56a59fd895&login_type=subscriber&login=dustywilson&campaign=null&bitrate=high&wmcache=0&mswmext=.asx"
+				name="SIRIUSPlayer"
+				width=1
+				height=0
+				autostart=1
+				ShowStatusBar=0
+				ShowCaptioning=0
+				showdisplay=0
+				ShowTracker=0
+				showcontrols=0
+				showpositioncontrols=0>
+			</EMBED>
+			</OBJECT>
+
+			</td>
+      <td colspan="2" rowspan="2">
+        <!-- BUTTONS:START -->
+
+        <table width="102" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td><img src="/s.gif" width="4" height="45" alt="" /></td>
+
+					<td><img src="/mp/i/btn/btn-player-play_on.gif" width="43" height="45" alt="Play" border="0"/></td>
+
+          <td><img src="/s.gif" width="2" height="45" alt="" /></td>
+
+					<td>
+						<a href="/sirius/servlet/MediaPlayer?activity=selectTab&tab=music&stream=siriuspops&genre=classicalMP&category=music&status=stop&token=e986e9c0e1f99bee138f7e56a59fd895">
+						<img src="/mp/i/btn/btn-player-stop_off.gif" width="44" height="45" alt="Stop" border="0" /></a></td>
+
+          <td><img src="/s.gif" width="9" height="45" alt="" /></td>
+
+        </tr>
+      </table>
+        <!-- BUTTONS:END --></td>
+    </tr>
+    <tr>
+     <td colspan="2">
+    	<!--  BIT RATE CONTROLS: START  -->
+
+
+
+
+
+	<table width="119" border="0" cellpadding="0" cellspacing="0" align="left">
+
+		<tr>
+
+			<td><a href="/sirius/servlet/MediaPlayer?activity=selectBitrate&bitrate=low&stream=siriuspops&genre=classicalMP&category=music&token=e986e9c0e1f99bee138f7e56a59fd895">
+				<img src="/mp/i/btn/btn-player-low-reg.gif" width="60" height="16"/></a></td>
+			<td><img src="/mp/i/btn/btn-player-hi-pressed.gif" width="60" height="16"/></a></td>
+		</tr>
+
+	</table>
+
+
+<script language="JavaScript">
+function processClick(userType) {
+	var url = "http://www.sirius.com";
+	if(userType == "guest") {
+		url = "http://www.sirius.com/internetradiononsubscriber";
+	} else if(userType == "subscriber")
+		url = "http://www.sirius.com/internetradiosubscriber";
+	var features="";
+	var newWin = window.open(url, "MediaPlayer", features);
+}
+</script>
+
+    	<!--  BIT RATE CONTROLS: END  -->
+	</td>
+    </tr>
+
+  </table>
+</div>
+      <!-- NOW PLAYING:END -->
+		</td>
+  </tr>
+  <tr>
+    <td><img src="/s.gif" width="100" height="7" alt="" border="0" /></td>
+  </tr>
+  <tr>
+    <td class="bg-dotted-grey-light"><img src="/s.gif" width="100" height="1" alt="" border="0" /></td>
+
+  </tr>
+  <tr>
+    <td><img src="/s.gif" width="100" height="5" alt="" border="0" /></td>
+  </tr>
+  <tr>
+    <td><img src="/mp/i/pg/pl/pg-pl-channel-selector.gif" width="121" height="15" alt="CHANNEL SELECTOR" /></td>
+  </tr>
+  <tr>
+    <td>
+      <!-- CHANNEL SELECTOR:START -->
+
+
+
+
+
+<script>
+function streamSelection() {
+	//get selected value in select box
+	var selectBox = document.streamSelectForm.selectedStream;
+	var selection = selectBox.options[selectBox.selectedIndex].value;
+
+	//if selected value is not genre, process stream request
+	if(selection != null && selection != "none") {
+
+		//split selection into category, genre and stream
+		var tokens = selection.split("|");
+
+		if(tokens.length == 3) {
+			var category = tokens[0];
+			var genre = tokens[1];
+			var stream = tokens[2];
+
+			document.streamSelectForm.category.value = category;
+			document.streamSelectForm.genre.value = genre;
+			document.streamSelectForm.stream.value = stream;
+		}
+
+		//submit form
+		document.streamSelectForm.submit();
+	}
+
+	return;
+}
+</script>
+<table cellpadding="0" cellspacing="0" border="0">
+<form action="/sirius/servlet/MediaPlayer" method="post" name="streamSelectForm">
+<input type="hidden" name="activity" value="selectStream">
+<input type="hidden" name="category" value="">
+<input type="hidden" name="genre" value="">
+<input type="hidden" name="stream" value="">
+<input type="hidden" name="token" value="e986e9c0e1f99bee138f7e56a59fd895">
+	<tr>
+   	<td>
+    	<select name="selectedStream" class="player" onChange="javascript:streamSelection();">
+<option value="none">== Pop ==</option>
+
+<option value="music|popSIR|siriushits1">&nbsp;&nbsp;&nbsp;SIRIUS Hits 1</option>
+<option value="music|popSIR|starlite">&nbsp;&nbsp;&nbsp;The Blend</option>
+<option value="music|popSIR|siriuslove">&nbsp;&nbsp;&nbsp;SIRIUS XM Love</option>
+<option value="music|popSIR|8205">&nbsp;&nbsp;&nbsp;'40s on 4</option>
+<option value="music|popSIR|siriusgold">&nbsp;&nbsp;&nbsp;'50s on 5</option>
+<option value="music|popSIR|60svibrations">&nbsp;&nbsp;&nbsp;'60s on 6</option>
+<option value="music|popSIR|totally70s">&nbsp;&nbsp;&nbsp;'70s on 7</option>
+<option value="music|popSIR|big80s">&nbsp;&nbsp;&nbsp;'80s on 8</option>
+<option value="music|popSIR|8206">&nbsp;&nbsp;&nbsp;'90s on 9</option>
+
+<option value="music|popSIR|bbcradio1">&nbsp;&nbsp;&nbsp;BBC Radio 1</option>
+<option value="music|popSIR|thepulse">&nbsp;&nbsp;&nbsp;The Pulse</option>
+<option value="music|popSIR|elvisradio">&nbsp;&nbsp;&nbsp;Elvis Radio</option>
+<option value="music|popSIR|8215">&nbsp;&nbsp;&nbsp;Escape</option>
+<option value="none">== Rock ==</option>
+<option value="music|rockSIR|estreetradio">&nbsp;&nbsp;&nbsp;E Street Radio</option>
+<option value="music|rockSIR|classicvinyl">&nbsp;&nbsp;&nbsp;Classic Vinyl</option>
+<option value="music|rockSIR|classicrewind">&nbsp;&nbsp;&nbsp;Classic Rewind</option>
+<option value="music|rockSIR|thevault">&nbsp;&nbsp;&nbsp;Deep Tracks</option>
+
+<option value="music|rockSIR|jamon">&nbsp;&nbsp;&nbsp;Jam_ON</option>
+<option value="music|rockSIR|thespectrum">&nbsp;&nbsp;&nbsp;The Spectrum</option>
+<option value="music|rockSIR|buzzsaw">&nbsp;&nbsp;&nbsp;Boneyard</option>
+<option value="music|rockSIR|octane">&nbsp;&nbsp;&nbsp;Octane</option>
+<option value="music|rockSIR|altnation">&nbsp;&nbsp;&nbsp;Alt Nation</option>
+<option value="music|rockSIR|firstwave">&nbsp;&nbsp;&nbsp;1st Wave</option>
+<option value="music|rockSIR|hairnation">&nbsp;&nbsp;&nbsp;Hair Nation</option>
+<option value="music|rockSIR|90salternative">&nbsp;&nbsp;&nbsp;Lithium</option>
+<option value="music|rockSIR|undergroundgarage">&nbsp;&nbsp;&nbsp;Underground Garage</option>
+
+<option value="music|rockSIR|leftofcenter">&nbsp;&nbsp;&nbsp;SIRIUS XM U</option>
+<option value="music|rockSIR|hardattack">&nbsp;&nbsp;&nbsp;Liquid Metal</option>
+<option value="music|rockSIR|faction">&nbsp;&nbsp;&nbsp;Faction</option>
+<option value="music|rockSIR|8207">&nbsp;&nbsp;&nbsp;The Loft</option>
+<option value="music|rockSIR|coffeehouse">&nbsp;&nbsp;&nbsp;The Coffee House</option>
+<option value="music|rockSIR|radiomargaritaville">&nbsp;&nbsp;&nbsp;Radio Margaritaville</option>
+<option value="music|rockSIR|gratefuldead">&nbsp;&nbsp;&nbsp;The Grateful Dead Channel</option>
+<option value="music|rockSIR|thebridge">&nbsp;&nbsp;&nbsp;The Bridge</option>
+<option value="none">== Elec/Dance ==</option>
+
+<option value="music|electronicdanceSIR|chill">&nbsp;&nbsp;&nbsp;SIRIUS XM Chill</option>
+<option value="music|electronicdanceSIR|thebeat">&nbsp;&nbsp;&nbsp;BPM</option>
+<option value="music|electronicdanceSIR|area33">&nbsp;&nbsp;&nbsp;Area</option>
+<option value="music|electronicdanceSIR|8036">&nbsp;&nbsp;&nbsp;The Strobe</option>
+<option value="none">== Hip-Hop/R&B ==</option>
+<option value="music|hiphopranb|8124">&nbsp;&nbsp;&nbsp;Backspin</option>
+<option value="music|hiphopranb|hiphopnation">&nbsp;&nbsp;&nbsp;Hip-Hop Nation</option>
+<option value="music|hiphopranb|shade45">&nbsp;&nbsp;&nbsp;Shade 45</option>
+
+<option value="music|hiphopranb|hotjamz">&nbsp;&nbsp;&nbsp;The Heat</option>
+<option value="music|hiphopranb|heartandsoul">&nbsp;&nbsp;&nbsp;Heart & Soul</option>
+<option value="music|hiphopranb|soultown">&nbsp;&nbsp;&nbsp;Soul Town</option>
+<option value="none">== Country ==</option>
+<option value="music|country|newcountry">&nbsp;&nbsp;&nbsp;The Highway</option>
+<option value="music|country|primecountry">&nbsp;&nbsp;&nbsp;Prime Country</option>
+<option value="music|country|theroadhouse">&nbsp;&nbsp;&nbsp;The Roadhouse</option>
+<option value="music|country|outlawcountry">&nbsp;&nbsp;&nbsp;Outlaw Country</option>
+
+<option value="music|country|8209">&nbsp;&nbsp;&nbsp;Willie's Place</option>
+<option value="music|country|bluegrass">&nbsp;&nbsp;&nbsp;Bluegrass Junction</option>
+<option value="none">== Christian ==</option>
+<option value="music|christian|spirit">&nbsp;&nbsp;&nbsp;The Message</option>
+<option value="music|christian|8210">&nbsp;&nbsp;&nbsp;enLighten</option>
+<option value="music|christian|praise">&nbsp;&nbsp;&nbsp;Praise</option>
+<option value="none">== Jazz/Blues ==</option>
+<option value="music|jazzandblues|jazzcafe">&nbsp;&nbsp;&nbsp;Watercolors</option>
+<option value="music|jazzandblues|purejazz">&nbsp;&nbsp;&nbsp;Real Jazz</option>
+
+<option value="music|jazzandblues|spa73">&nbsp;&nbsp;&nbsp;Spa</option>
+<option value="music|jazzandblues|siriusblues">&nbsp;&nbsp;&nbsp;BB King's Bluesville</option>
+<option value="none">== Standards ==</option>
+<option value="music|standards|siriuslysinatra">&nbsp;&nbsp;&nbsp;Siriusly Sinatra</option>
+<option value="music|standards|broadwaysbest">&nbsp;&nbsp;&nbsp;On Broadway</option>
+<option value="none">== Classical ==</option>
+<option value="music|classicalMP|metropolitanopera">&nbsp;&nbsp;&nbsp;Metropolitan Opera Radio</option>
+<option value="music|classicalMP|siriuspops" selected >&nbsp;&nbsp;&nbsp;SIRIUS XM Pops</option>
+<option value="music|classicalMP|symphonyhall">&nbsp;&nbsp;&nbsp;Symphony Hall</option>
+
+<option value="none">== Latin/Int'l ==</option>
+<option value="music|latinworldSIR|8225">&nbsp;&nbsp;&nbsp;Viva</option>
+<option value="music|latinworldSIR|rumbon">&nbsp;&nbsp;&nbsp;Caliente</option>
+<option value="music|latinworldSIR|reggaerhythms">&nbsp;&nbsp;&nbsp;The Joint</option>
+<option value="none">== Howard 100 ==</option>
+<option value="cathowardstern|howard100|howardstern100">&nbsp;&nbsp;&nbsp;Howard 100</option>
+<option value="none">== Howard 101 ==</option>
+<option value="cathowardstern|howard101|howardstern101">&nbsp;&nbsp;&nbsp;Howard 101</option>
+<option value="none">== Martha Stewart ==</option>
+
+<option value="catmarthastewart|marthastewartlivingradio|marthastewartlivingradio">&nbsp;&nbsp;&nbsp;Martha Stewart Living Radio</option>
+<option value="none">== Playboy Radio ==</option>
+<option value="cattalk|playboyradio|playboyradio">&nbsp;&nbsp;&nbsp;Playboy Radio</option>
+<option value="none">== SIRIUS XM Stars ==</option>
+<option value="cattalk|siriusstars|siriusstars">&nbsp;&nbsp;&nbsp;SIRIUS XM Stars</option>
+<option value="none">== SIRIUS XM Stars Too ==</option>
+<option value="cattalk|maximradio|maximradio">&nbsp;&nbsp;&nbsp;SIRIUS XM Stars Too</option>
+<option value="none">== SIRIUS OutQ ==</option>
+<option value="cattalk|siriusoutq|siriusoutq">&nbsp;&nbsp;&nbsp;SIRIUS OutQ</option>
+
+<option value="none">== POTUS Politics ==</option>
+<option value="cattalk|indietalk|indietalk">&nbsp;&nbsp;&nbsp;POTUS Politics</option>
+<option value="none">== Cosmo Radio ==</option>
+<option value="cattalk|cosmo|cosmopolitanradio">&nbsp;&nbsp;&nbsp;Cosmo Radio</option>
+<option value="none">== SIRIUS Patriot ==</option>
+<option value="cattalk|siriuspatriot|siriuspatriot">&nbsp;&nbsp;&nbsp;SIRIUS Patriot</option>
+<option value="none">== SIRIUS Left ==</option>
+<option value="cattalk|siriusleft|siriusleft">&nbsp;&nbsp;&nbsp;SIRIUS Left</option>
+<option value="none">== Road Dog Trucking ==</option>
+
+<option value="cattalk|roaddog|roaddogtrucking">&nbsp;&nbsp;&nbsp;Road Dog Trucking</option>
+<option value="none">== NPR ==</option>
+<option value="catnews|npr|npr">&nbsp;&nbsp;&nbsp;NPR</option>
+<option value="none">== CNN ==</option>
+<option value="catnews|CNN|cnn">&nbsp;&nbsp;&nbsp;CNN</option>
+<option value="none">== World Radio Network ==</option>
+<option value="catnews|World Radio Network|wrn">&nbsp;&nbsp;&nbsp;World Radio Network</option>
+<option value="none">== BBC World Service ==</option>
+<option value="catnews|BBC World Service News|bbcworld">&nbsp;&nbsp;&nbsp;BBC World Service News</option>
+
+<option value="none">== Blue Collar Radio ==</option>
+<option value="catcomedy|bluecollarradio|bluecollarcomedy">&nbsp;&nbsp;&nbsp;Blue Collar Radio</option>
+<option value="none">== Raw Dog ==</option>
+<option value="catcomedy|rawdog|rawdog">&nbsp;&nbsp;&nbsp;Raw Dog Comedy</option>
+<option value="none">== Laugh USA ==</option>
+<option value="catcomedy|Laugh USA|laughbreak">&nbsp;&nbsp;&nbsp;Laugh USA</option>
+<option value="none">== The Foxxhole ==</option>
+<option value="catcomedy|thefoxxhole|thefoxxhole">&nbsp;&nbsp;&nbsp;The Foxxhole</option>
+<option value="none">== Doctor Radio ==</option>
+
+<option value="catfamilykid|doctorradio|doctorradio">&nbsp;&nbsp;&nbsp;Doctor Radio</option>
+<option value="none">== Kids Place Live ==</option>
+<option value="catfamilykid|kidsplace|8216">&nbsp;&nbsp;&nbsp;Kids Place Live</option>
+<option value="none">== The Catholic Channel ==</option>
+<option value="catreligion|thecatholicchannel|thecatholicchannel">&nbsp;&nbsp;&nbsp;The Catholic Channel</option>
+<option value="none">== EWTN ==</option>
+<option value="catreligion|ewtnglobal|ewtnglobal">&nbsp;&nbsp;&nbsp;EWTN Global Catholic Network</option>
+<option value="none">== FamilyNet Radio ==</option>
+<option value="catreligion|familynetradio|christiantalk">&nbsp;&nbsp;&nbsp;FamilyNet Radio</option>
+
+<option value="none">== SIRIUS NFL Radio ==</option>
+<option value="catsports|siriusfootballradio|siriusnflradio">&nbsp;&nbsp;&nbsp;SIRIUS NFL Radio</option>
+<option value="none">== Mad Dog Unleashed ==</option>
+<option value="catsports|maddog|8204">&nbsp;&nbsp;&nbsp;Mad Dog Unleashed</option>
+</select>
+
+	</td>
+   	<td>
+			<a href="javascript: streamSelection();">
+			<!-- Google tracking -->
+
+
+
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+
+var mediaPlayerTrackerAccount = "UA-69195-6";
+var supersiteTrackerAccount = "UA-69195-16";
+var mpLinkOnlyTrackerAccount = "UA-69195-1";
+
+var firstTracker = _gat._getTracker(mediaPlayerTrackerAccount);
+firstTracker._initData();
+firstTracker._trackPageview();
+
+var secondTracker = _gat._getTracker(supersiteTrackerAccount);
+secondTracker._initData();
+secondTracker._trackPageview();
+
+function trackLink(linkName) {
+	var linkTracker = _gat._getTracker(mpLinkOnlyTrackerAccount);
+	linkTracker._initData();
+	linkTracker._trackPageview(linkName);
+}
+</script>
+			<img src="/mp/i/btn/btn-select-orange.gif" width="73" height="16" alt="SELECT"/></a>
+		</td>
+	</tr>
+</form>
+</table>
+
+      <!-- CHANNEL SELECTOR:END --></td>
+  </tr>
+
+</table>
+
+<div id="Transparent" style="background: black; opacity:0.4; -moz-opacity:0.4;
+    filter:alpha(opacity=40); position: absolute; left: 0px; top: 0px; height: 310px;
+    width: 370px; z-index: 2; display: none">
+</div>
+
+<div id="StillListening" style="position: absolute; left: 25px; top: 106px;
+        height: 97px; width: 321px; z-index: 3; display: none">
+    <img src="/mp/i/still_listening.gif" name="sl"
+        onclick="userIsListening()" align="center"
+        alt="Are you still listening? If so, click here to continue.">
+</div>
+
+<div id="NoLongerListening" style="position: absolute; left: 25px; top: 97px;
+        height: 116px; width: 321px; z-index: 3; display: none">
+    <img src="/mp/i/no_longer_listening.gif"
+         name="nl" onclick=location.href="/sirius/servlet/MediaPlayer?activity=selectTab&tab=music&stream=siriuspops&genre=classicalMP&category=music&token=e986e9c0e1f99bee138f7e56a59fd895"
+         align="center"
+         alt="Your streaming was paused due to inactivity. Click here to continue.">
+</div>
+
+<div id="playStillListeningAlert"></div>
+
+<script>
+  	var timeout = "null";
+  	var transparentDiv = 'Transparent';
+  	var noLongerListeningDiv = 'NoLongerListening';
+  	var stillListeningDiv = 'StillListening';
+    if (timeout == 'true') {
+        document.getElementById(stillListeningDiv).style.display = 'none';
+        document.getElementById(transparentDiv).style.display = 'inline';
+        document.getElementById(noLongerListeningDiv).style.display = 'inline';
+        this.focus();
+    }
+</script>
+
+</body>
+</html>

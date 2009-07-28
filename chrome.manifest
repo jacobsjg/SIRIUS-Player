@@ -1,0 +1,5 @@
+content	siriusplayer	content/
+locale	siriusplayer	en-US	locale/en-US/
+skin	siriusplayer	classic/1.0	skin/
+overlay	chrome://browser/content/browser.xul	chrome://siriusplayer/content/browser.xul
+overlay chrome://browser/content/preferences/preferences.xul	chrome://siriusplayer/content/preferences.xul

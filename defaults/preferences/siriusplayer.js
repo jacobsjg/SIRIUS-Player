@@ -1,0 +1,9 @@
+pref("extensions.siriusplayer.legalagree", false);
+pref("extensions.siriusplayer.country", "US");
+pref("extensions.siriusplayer.presets", "");
+pref("extensions.siriusplayer.authtrigger", "");
+pref("extensions.siriusplayer.lowquality", false);
+pref("extensions.siriusplayer.trackerupdatefreq", 15);
+pref("extensions.siriusplayer.trackerupdateurl", "http://dogstardata.org/tracker/ffsp.txt");
+pref("extensions.siriusplayer.chanmapurl", "http://www.siriusplayer.dustywilson.com/chanmap.txt");
+pref("extensions.siriusplayer.urlupdateurl", "http://www.siriusplayer.dustywilson.com/urlupdate.txt");

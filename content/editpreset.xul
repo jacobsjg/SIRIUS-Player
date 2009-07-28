@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<?xml-stylesheet href="chrome://siriusplayer/skin/overlay.css" type="text/css" ?>
+<window id="SiriusPlayer-EditPreset-Window"
+      xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+      xmlns:html="http://www.w3.org/1999/xhtml"
+      onload="siriusplayer_init()">
+
+  <script type="application/x-javascript" src="chrome://siriusplayer/content/editpreset.js" />
+
+  <button label="Save" oncommand="siriusplayer_save()" />
+  <button label="Cancel" oncommand="siriusplayer_cancel()" />
+
+  <label value="Preset 1" />
+  <menulist id="SiriusPlayer-EditPreset-Preset1" label="--" onpopupshowing="siriusplayer_populateChannelBox(this)">
+    <menupopup>
+    </menupopup>
+  </menulist>
+
+  <label value="Preset 2" />
+  <menulist id="SiriusPlayer-EditPreset-Preset2" label="--" onpopupshowing="siriusplayer_populateChannelBox(this)">
+    <menupopup>
+    </menupopup>
+  </menulist>
+
+  <label value="Preset 3" />
+  <menulist id="SiriusPlayer-EditPreset-Preset3" label="--" onpopupshowing="siriusplayer_populateChannelBox(this)">
+    <menupopup>
+    </menupopup>
+  </menulist>
+
+  <label value="Preset 4" />
+  <menulist id="SiriusPlayer-EditPreset-Preset4" label="--" onpopupshowing="siriusplayer_populateChannelBox(this)">
+    <menupopup>
+    </menupopup>
+  </menulist>
+
+  <label value="Preset 5" />
+  <menulist id="SiriusPlayer-EditPreset-Preset5" label="--" onpopupshowing="siriusplayer_populateChannelBox(this)">
+    <menupopup>
+    </menupopup>
+  </menulist>
+
+  <label value="Preset 6" />
+  <menulist id="SiriusPlayer-EditPreset-Preset6" label="--" onpopupshowing="siriusplayer_populateChannelBox(this)">
+    <menupopup>
+    </menupopup>
+  </menulist>
+
+  <label value="Preset 7" />
+  <menulist id="SiriusPlayer-EditPreset-Preset7" label="--" onpopupshowing="siriusplayer_populateChannelBox(this)">
+    <menupopup>
+    </menupopup>
+  </menulist>
+
+  <label value="Preset 8" />
+  <menulist id="SiriusPlayer-EditPreset-Preset8" label="--" onpopupshowing="siriusplayer_populateChannelBox(this)">
+    <menupopup>
+    </menupopup>
+  </menulist>
+
+  <label value="Preset 9" />
+  <menulist id="SiriusPlayer-EditPreset-Preset9" label="--" onpopupshowing="siriusplayer_populateChannelBox(this)">
+    <menupopup>
+    </menupopup>
+  </menulist>
+
+</window>

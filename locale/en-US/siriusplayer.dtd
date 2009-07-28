@@ -1,0 +1,26 @@
+<!ENTITY siriusplayer.label "SIRIUS Player">
+<!ENTITY siriusplayer.accesskey "I">
+
+<!ENTITY siriusplayerConfig.label "Settings">
+
+<!ENTITY siriusplayerAboutSite.label "SIRIUS Player Add-on Website">
+<!ENTITY siriusplayerAboutDonations.label "Donate to SIRIUS Player Add-on">
+<!ENTITY siriusplayerAboutAddonSite.label "SIRIUS Player Add-on at Mozilla Add-on Website">
+<!ENTITY siriusplayerAboutSiriusSite.label "SIRIUS Satellite Radio Official Website">
+
+<!ENTITY siriusplayerPrefs.label "SIRIUS Player">
+
+<!ENTITY siriusplayerPrefsSettings.label "Settings">
+
+<!ENTITY siriusplayerPrefsPresets.label "Presets">
+
+<!ENTITY siriusplayerPrefsLegal.label "Legal">
+<!ENTITY siriusplayerPrefsLegalText.label "Legal Text">
+
+<!ENTITY siriusplayerPrefsAbout.label "About">
+
+<!ENTITY siriusplayerSidebar.label "SIRIUS Player Sidebar">
+<!ENTITY siriusplayerSidebar.commandkey "Q">
+<!ENTITY siriusplayerSidebar.modifierskey "shift accel">
+
+<!ENTITY siriusplayerSidebarFull.label "SIRIUS Player New Tab">

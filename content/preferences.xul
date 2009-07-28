@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ***** BEGIN LICENSE BLOCK *****
+  -   Version: MPL 1.1/GPL 2.0/LGPL 2.1
+  -
+  - The contents of this file are subject to the Mozilla Public License Version
+  - 1.1 (the "License"); you may not use this file except in compliance with
+  - the License. You may obtain a copy of the License at
+  - http://www.mozilla.org/MPL/
+  -
+  - Software distributed under the License is distributed on an "AS IS" basis,
+  - WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+  - for the specific language governing rights and limitations under the
+  - License.
+  -
+  - The Original Code is SIRIUS Player.
+  -
+  - The Initial Developer of the Original Code is
+  - Dusty Wilson.
+  - Portions created by the Initial Developer are Copyright (C) 2009
+  - the Initial Developer. All Rights Reserved.
+  -
+  - Contributor(s):
+  -
+  - Alternatively, the contents of this file may be used under the terms of
+  - either the GNU General Public License Version 2 or later (the "GPL"), or
+  - the GNU Lesser General Public License Version 2.1 or later (the "LGPL"),
+  - in which case the provisions of the GPL or the LGPL are applicable instead
+  - of those above. If you wish to allow use of your version of this file only
+  - under the terms of either the GPL or the LGPL, and not to allow others to
+  - use your version of this file under the terms of the MPL, indicate your
+  - decision by deleting the provisions above and replace them with the notice
+  - and other provisions required by the GPL or the LGPL. If you do not delete
+  - the provisions above, a recipient may use your version of this file under
+  - the terms of any one of the MPL, the GPL or the LGPL.
+  -
+  - ***** END LICENSE BLOCK ***** -->
+
+<?xml-stylesheet href="chrome://siriusplayer/skin/overlay.css" type="text/css"?>
+<!DOCTYPE overlay SYSTEM "chrome://siriusplayer/locale/siriusplayer.dtd">
+<overlay id="siriusplayer-overlay" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul" xmlns:html="http://www.w3.org/1999/xhtml">
+
+  <prefwindow id="BrowserPreferences" onload="siriusplayer.onLoad()">
+    <script src="preferences.js"/>
+    <prefpane id="siriusplayer-preferences" label="&siriusplayerPrefs.label;" image="chrome://siriusplayer/skin/noteicon.png">
+      <preferences>
+        <preference id="siriusplayer-pref-legalagree" name="extensions.siriusplayer.legalagree" type="bool" />
+        <preference id="siriusplayer-pref-country" name="extensions.siriusplayer.country" type="string" />
+        <preference id="siriusplayer-pref-lowquality" name="extensions.siriusplayer.lowquality" type="bool" />
+      </preferences>
+
+      <tabbox id="siriusplayer-preferences-tabbox" selectedIndex="0" flex="1">
+        <tabs>
+          <tab id="siriusplayer-preferences-settings-tab" label="&siriusplayerPrefsSettings.label;" />
+          <tab id="siriusplayer-preferences-legal-tab" label="&siriusplayerPrefsLegal.label;" />
+          <tab id="siriusplayer-preferences-about-tab" label="&siriusplayerPrefsAbout.label;" />
+        </tabs>
+        <tabpanels flex="1">
+          <tabpanel id="siriusplayer-preferences-settings" style="overflow:auto">
+            <vbox>
+              <label>Country</label>
+              <radiogroup id="siriusplayer-pref-country-field" preference="siriusplayer-pref-country">
+                <radio value="US" label="United States" />
+                <radio value="CA" label="Canada" />
+              </radiogroup>
+              <separator />
+              <label>Username</label>
+              <textbox id="siriusplayer-pref-username-field" onblur="siriusplayer.player.setAuthInfo(this.value, document.getElementById('siriusplayer-pref-password-field').value)" />
+              <separator />
+              <label>Password</label>
+              <textbox id="siriusplayer-pref-password-field" type="password" onblur="siriusplayer.player.setAuthInfo(document.getElementById('siriusplayer-pref-username-field').value, this.value)" />
+              <separator />
+              <button label="Remove Login Information" oncommand="siriusplayer.player.setAuthInfo(); document.getElementById('siriusplayer-pref-username-field').value = ''; document.getElementById('siriusplayer-pref-password-field').value = ''" />
+              <separator />
+              <checkbox id="siriusplayer-pref-lowquality-field" preference="siriusplayer-pref-lowquality" label="Prefer Low Quality (prefers High Quality otherwise)" />
+              <separator />
+              <button label="Force Channel Map Update" oncommand="siriusplayer.player.chanMap(1)" />
+              <button label="Force URL Update" oncommand="siriusplayer.player.urlUpdate(1)" />
+            </vbox>
+          </tabpanel>
+          <tabpanel id="siriusplayer-preferences-legal" style="overflow:auto">
+            <vbox>
+              <description>SIRIUS Player will not function until you agree to this legal mumbo-jumbo.</description>
+              <checkbox id="siriusplayer-pref-legalagree-field" preference="siriusplayer-pref-legalagree" label="I agree to the following legal statement." />
+              <html:textarea flex="1" readonly="1">YOU MUST AGREE TO THIS LEGAL STATEMENT
+
+If you disagree, you must uninstall this add-on.  If you disagree with it later, you must uninstall it then.  If any updates in the future require re-agreement, the box will be unchecked automatically.
+
+
+** SIRIUS Player Add-on for Firefox was NOT created by SIRIUS Satellite Radio Inc. **
+
+SIRIUS Player is supported and created by Dusty Wilson, a third-party developer not affiliated with SIRIUS Satellite Radio Inc.
+
+SIRIUS Player is not supported, sponsored, approved, or created by SIRIUS Satellite Radio Inc., SIRIUS Canada Inc., or any of their partners, agents, or sponsors.
+
+Do NOT contact SIRIUS for technical support for this extension!  The author of this extension is offering support at http://www.siriusplayer.dustywilson.com/.
+
+
+** COPYRIGHT/TRADEMARK NOTICE **
+
+SIRIUS Player code and interface are copyright 2006-2009 Dusty Wilson.  All rights reserved.
+
+"SIRIUS", the SIRIUS dog logo, and channel names and logos are trademarks of SIRIUS Satellite Radio Inc. "BBC" and "Radio One" are trademarks of the British Broadcasting Corporation and are used by SIRIUS Satellite Radio Inc under licence. All other trademarks, service marks and logos are the property of their respective owners.
+
+
+** PRIVACY NOTICE **
+
+Your username, password, usage statistics, or any other private information is not sent to the author of this add-on.  Your account information is only shared with SIRIUS and is never passed through any servers owned or maintained by the author.
+
+SIRIUS channel and song data is supplied by DogstarRadio.com.  The data feed is hosted on their servers as well as their volunteers.  No personally identifiable information is supplied to DogstarRadio.com.
+
+Album image and purchase information is supplied by Amazon.com.  No personally identifiable information is supplied.
+
+SIRIUS has their own privacy policy at http://www.sirius.com/privacypolicy/.
+
+If you have any questions about privacy, you can contact the author at siriusplayer+privacy@dusty.hey.nu or visit http://www.siriusplayer.dustywilson.com/.
+
+
+** LICENSING **
+
+License Version: MPL 1.1/GPL 2.0/LGPL 2.1
+
+The contents of this file are subject to the Mozilla Public License Version 1.1 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at http://www.mozilla.org/MPL/
+
+Software distributed under the License is distributed on an "AS IS" basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License for the specific language governing rights and limitations under the License.
+
+The Original Code is SIRIUS Player.
+
+The Initial Developer of the Original Code is Dusty Wilson.  Portions created by Dusty Wilson are Copyright (C) 2009 Dusty Wilson. All Rights Reserved.
+
+Alternatively, the contents of this file may be used under the terms of either the GNU General Public License Version 2 or later (the "GPL"), or the GNU Lesser General Public License Version 2.1 or later (the "LGPL"), in which case the provisions of the GPL or the LGPL are applicable instead of those above. If you wish to allow use of your version of this file only under the terms of either the GPL or the LGPL, and not to allow others to use your version of this file under the terms of the MPL, indicate your decision by deleting the provisions above and replace them with the notice and other provisions required by the GPL or the LGPL. If you do not delete the provisions above, a recipient may use your version of this file under the terms of any one of the MPL, the GPL or the LGPL.</html:textarea>
+            </vbox>
+          </tabpanel>
+          <tabpanel id="siriusplayer-preferences-about" style="overflow:auto">
+            <vbox>
+              <label id="siriusplayer-preferences-about-title">SIRIUS Player</label>
+              <label id="siriusplayer-preferences-about-author">by Dusty Wilson</label>
+              <separator />
+              <label id="siriusplayer-preferences-about-disclaim">Not created, supported, or approved by SIRIUS Satellite Radio Inc.</label>
+              <separator />
+              <label id="siriusplayer-preferences-about-support" class="text-link" href="http://www.siriusplayer.dustywilson.com/">Technical Support for SIRIUS Player</label>
+              <label id="siriusplayer-preferences-about-donate" class="text-link" href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=4033623">Donate to creator of SIRIUS Player</label>
+              <separator />
+              <label id="siriusplayer-preferences-about-donors">SIRIUS Player made possible by contributions by:</label>
+              <html:textarea flex="1" readonly="1">Roger Mehle
+Robert Hughes
+Roger Mehle
+Philip Brogan
+Tom D'Aprix
+John Beierwaltes
+Robert Hughes
+Shawn Swart
+Ricky Swalm
+Ricky Swalm
+Electronic Medical Record, Inc.
+Anonymous (J.R.)
+Susan Kernaghan
+Paracinema Magazine
+Christie Boudan
+Spills
+Joseph Miller
+Seth Brodkin
+Dan Nelson
+Alex Feldman
+BeyondPod Team
+Alan Williford
+Peter Anastasia
+Anonymous (C.W.)
+Anonymous (M.T.)
+Christopher Wanner
+Chris Armstrong
+Raymond Burkes
+Donald Bazille
+David Bressler
+Jameson Buffmire
+
+If you donated but aren't listed, let me know!</html:textarea>
+            </vbox>
+          </tabpanel>
+        </tabpanels>
+      </tabbox>
+
+    </prefpane>
+  </prefwindow>
+
+</overlay>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<?xml-stylesheet href="chrome://siriusplayer/skin/overlay.css" type="text/css" ?>
+<overlay id="SiriusPlayer-Overlay"
+      xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+      xmlns:html="http://www.w3.org/1999/xhtml">
+
+  <script type="application/x-javascript" src="chrome://siriusplayer/content/overlay.js" />
+  
+  <menubar id="main-menubar">
+    <menu id="menu_SiriusPlayer-Label" label="SIRIUS" accesskey="I">
+      <menupopup id="SiriusPlayer-Menu-Popup" onpopupshowing="return siriusplayer_initMenu()">
+        <menuitem id="SiriusPlayer-Menu-SelectedChannel-Logo" disabled="true" channel="STOPPED" />
+        <menuitem id="SiriusPlayer-Menu-SelectedChannel" label="STOPPED" disabled="true" channel="STOPPED" />
+        <menuitem id="SiriusPlayer-Menu-Stop" label="Stop" accesskey="s" oncommand="siriusplayer_setChannel(0)" channel="STOPPED" />
+        <menu id="SiriusPlayer-Menu-Channels" label="Channels">
+          <menupopup id="SiriusPlayer-Menu-Channels-Popup">
+            <menuitem label="-- Login --" accesskey="l" oncommand="siriusplayer_setChannel(0)" />
+          </menupopup>
+        </menu>
+        <menuseparator />
+        <menuitem id="SiriusPlayer-Preset-1" class="SiriusPlayer-Preset" accesskey="1" label="" data="" oncommand="siriusplayer_setChannel(this.getAttribute('data'))" />
+        <menuitem id="SiriusPlayer-Preset-2" class="SiriusPlayer-Preset" accesskey="2" label="" data="" oncommand="siriusplayer_setChannel(this.getAttribute('data'))" />
+        <menuitem id="SiriusPlayer-Preset-3" class="SiriusPlayer-Preset" accesskey="3" label="" data="" oncommand="siriusplayer_setChannel(this.getAttribute('data'))" />
+        <menuitem id="SiriusPlayer-Preset-4" class="SiriusPlayer-Preset" accesskey="4" label="" data="" oncommand="siriusplayer_setChannel(this.getAttribute('data'))" />
+        <menuitem id="SiriusPlayer-Preset-5" class="SiriusPlayer-Preset" accesskey="5" label="" data="" oncommand="siriusplayer_setChannel(this.getAttribute('data'))" />
+        <menuitem id="SiriusPlayer-Preset-6" class="SiriusPlayer-Preset" accesskey="6" label="" data="" oncommand="siriusplayer_setChannel(this.getAttribute('data'))" />
+        <menuitem id="SiriusPlayer-Preset-7" class="SiriusPlayer-Preset" accesskey="7" label="" data="" oncommand="siriusplayer_setChannel(this.getAttribute('data'))" />
+        <menuitem id="SiriusPlayer-Preset-8" class="SiriusPlayer-Preset" accesskey="8" label="" data="" oncommand="siriusplayer_setChannel(this.getAttribute('data'))" />
+        <menuitem id="SiriusPlayer-Preset-9" class="SiriusPlayer-Preset" accesskey="9" label="" data="" oncommand="siriusplayer_setChannel(this.getAttribute('data'))" />
+        <menuseparator />
+        <menuitem label="Edit Preset List..." accesskey="E" oncommand="siriusplayer_editPresets()" />
+        <menuseparator />
+        <menu label="Options">
+          <menupopup onpopupshowing="return siriusplayer_initOptions()">
+            <menuitem id="SiriusPlayer-ShowChannelInMenuLabel" type="checkbox" label="Show Channel Name in Menu Bar" oncommand="siriusplayer_setShowChannelInMenuLabel(1)" />
+            <menu label="Audio Quality">
+              <menupopup onpopupshowing="return siriusplayer_initQuality()">
+                <menuitem id="SiriusPlayer-Quality-High" name="SiriusPlayer-Quality" type="radio" label="High Quality" oncommand="siriusplayer_setQuality('High')" />
+                <menuitem id="SiriusPlayer-Quality-Normal" name="SiriusPlayer-Quality" type="radio" label="Normal Quality" oncommand="siriusplayer_setQuality('Normal')" />
+              </menupopup>
+            </menu>
+            <menu label="Country">
+              <menupopup onpopupshowing="return siriusplayer_initCountry()">
+                <menuitem id="SiriusPlayer-Country-US" name="SiriusPlayer-Country" type="radio" label="United States" oncommand="siriusplayer_setCountry('US')" />
+                <menuitem id="SiriusPlayer-Country-CA" name="SiriusPlayer-Country" type="radio" label="Canada" oncommand="siriusplayer_setCountry('CA')" />
+              </menupopup>
+            </menu>
+          </menupopup>
+        </menu>
+        <menu label="About">
+          <menupopup>
+            <menuitem label="SIRIUS Player Website" oncommand="siriusplayer_openTab('http://www.siriusplayer.dustywilson.com/')" />
+            <menuitem label="SIRIUS Player Donations" oncommand="siriusplayer_openTab('http://www.siriusplayer.dustywilson.com/donate/')" />
+            <menuitem label="SIRIUS Player at Mozilla Add-on Website" oncommand="siriusplayer_openTab('https://addons.mozilla.org/firefox/3546/')" />
+            <menuitem label="SIRIUS Satellite Radio Official Website" oncommand="siriusplayer_openTab('http://www.sirius.com/')" />
+          </menupopup>
+        </menu>
+      </menupopup>
+    </menu>
+  </menubar>
+
+</overlay>

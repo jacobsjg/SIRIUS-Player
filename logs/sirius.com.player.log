@@ -1,0 +1,411 @@
+POST /sirius/servlet/MediaPlayerLogin/subscriber HTTP/1.1
+Host: www.sirius.com
+User-Agent: Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.9.0.7) Gecko/2009030422 Ubuntu/8.10 (intrepid) Firefox/3.0.7
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: en-us,en;q=0.5
+Accept-Encoding: gzip,deflate
+Accept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.7
+Keep-Alive: 300
+Connection: keep-alive
+Content-Length: 255
+Content-Type: application/xml; charset=UTF-8
+Cookie: JSESSIONID=AqFXpJI19RLvLHqXZKkIU1aqut7iQJ64x4CAmYNp; sirius_campain_code=null; captcha_timestamp=1237416251560; __utma=49083044.1620725789794504000.1237416237.1237416237.1237416237.1; __utmb=49083044.2.10.1237416237; __utmc=49083044; __utmz=49083044.1237416237.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none); sirius_promocode=null
+Referer: http://www.sirius.com/sirius/servlet/MediaPlayer
+Pragma: no-cache
+Cache-Control: no-cache
+
+activity=login&type=subscriber&password=ebbe1789ed19e1cb96c2f76b245c9b1b&loginForm=subscriber&stream=&token=5ee058b399921b7dbf14cd397ff93fa8&playerType=full&username=dustywilson&captchaID=fed%60cfaebfbag%3E%3A0%08gg%60&captcha_response=fYP7&rememberMe=yesHTTP/1.1 200 OK
+Content-Type: text/html;ISO-8859-1
+Server: 
+Content-Length: 12887
+Expires: Wed, 18 Mar 2009 22:44:11 GMT
+Cache-Control: max-age=0, no-cache, no-store
+Pragma: no-cache
+Date: Wed, 18 Mar 2009 22:44:11 GMT
+Connection: keep-alive
+Set-Cookie: sirius_promocode=null;Path=/
+Set-Cookie: captcha_timestamp=1237416251734;Path=/
+
+
+
+
+
+
+
+
+<html>
+<head>
+	<title>Welcome to the SIRIUS Player</title>
+	<META HTTP-EQUIV="Expires" CONTENT="-1">
+	<META HTTP-EQUIV="PRAGMA" CONTENT="NO-CACHE">
+	<META HTTP-EQUIV="no-cache">
+	
+	<link rel="stylesheet" href="/mp/styles/player.css" type="text/css">
+	<script src="/mp/scripts/md5.js" type="text/javascript" language="javascript"></script>
+	<script src="/mp/scripts/mediaplayer_login.js" type="text/javascript" language="javascript"></script>
+</head>
+<body class="player-blue" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="650" height="575" cellspacing="0" cellpadding="0" border="0">
+    <!--  COMMON HEADER:BEGIN -->
+  	<tr> 
+  		<td height="80">
+  			
+
+
+
+<table width="650" height="80" cellspacing="0" cellpadding="0" border="0">
+	<tr>
+		<td>
+			
+
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+
+var mediaPlayerTrackerAccount = "UA-69195-6";
+var supersiteTrackerAccount = "UA-69195-16";
+var mpLinkOnlyTrackerAccount = "UA-69195-1";
+
+var firstTracker = _gat._getTracker(mediaPlayerTrackerAccount);
+firstTracker._initData();
+firstTracker._trackPageview();
+
+var secondTracker = _gat._getTracker(supersiteTrackerAccount);
+secondTracker._initData();
+secondTracker._trackPageview();
+
+function trackLink(linkName) {
+	var linkTracker = _gat._getTracker(mpLinkOnlyTrackerAccount);
+	linkTracker._initData();
+	linkTracker._trackPageview(linkName);
+}
+</script>
+			<img src="/s.gif" width="200" height="80">
+		</td>
+		<td width="250" valign="middle" align="center">
+			<a href="#" onClick="javascript: openWindow('http://www.sirius.com/siriusinternetradio');"><img src="/mp/i/pg/pl/pg-pl-sir-logo.gif" border="0" alt="SIRIUS Internet Radio"></a>
+		</td>
+		<td width="180" align="right" valign="bottom">
+			<a href="#" onClick="javascript: openWindow('http://www.sirius.com');"><img src="/s.gif" border="0"></a>
+		</td>
+		<td><img src="/s.gif" width="20" height="80"></td>
+	</tr>
+</table>
+		</td>
+  	</tr>
+  	<!--  COMMON HEADER:END -->
+  	<!-- LOGIN FORM BEGIN -->
+  	<tr>
+  		<td height="330">
+  			
+
+
+
+
+
+
+
+
+
+
+
+<table width="650" height="330" cellspacing="0" cellpadding="0" border="0">
+  	<!--  LOGIN PAGE HEADER:BEGIN -->
+  	<tr>
+    	<td height="80">
+	  		<table width="650" height="80" cellspacing="0" cellpadding="0" border="0">
+    			<tr>
+    				<td><img src="/s.gif" width="60" height="42"></td>
+    				<td width="530" valign="bottom">
+    					<img src="/mp/i/login/signin_headline.gif">
+    				</td>
+    				<td><img src="/s.gif" width="60" height="42"></td>
+    			</tr>
+    			<tr>
+    				<td colspan="3"><img src="/s.gif" width="650" height="3"></td>
+    			</tr>
+    			<tr>
+    				<td><img src="/s.gif" width="60" height="2"></td>
+    				<td width="530" class="bg-row-blue"><img src="/s.gif" width="60" height="2"></td>
+    				<td><img src="/s.gif" width="60" height="2"></td>
+    			</tr>
+    			<tr>
+    				<td colspan="3"><img src="/s.gif" width="650" height="3"></td>
+    			</tr>
+    			<tr>
+    				<td><img src="/s.gif" width="60" height="30"></td>
+    				
+	    			<td width="530" class="lptn">Welcome to the SIRIUS Player. Enjoy SIRIUS - no radio required. Enter 
+				your username and password below to start listening. If you're not a 
+				subscriber or a registered guest, see the choices below.</td>
+	   				
+    				<td><img src="/s.gif" width="60" height="30"></td>
+    			</tr>
+    		</table>
+    	</td>
+    </tr>
+  	<!--  LOGIN PAGE HEADER:END -->
+	<!--  LOGIN FORM:BEGIN -->
+	<tr>
+		<td height="140">
+			<form name="loginForm" method="POST">
+			<table width="650" height="140" cellspacing="0" cellpadding="0" border="0">
+				<tr>
+					<td><img src="/s.gif" width="220" height="18"></td>
+					<td colspan="2" class="error-msg">
+						
+					</td>
+				</tr>
+				<tr>
+					<td align="right" class="t5wn">Username&nbsp;</td>
+					<td width="190"><input type="text" name="username" value="" size="30" maxlength="64" ></td>
+					<td width="240" align="left">
+						<font class="lptn">
+							<input type="checkbox" name="remember" value="yes" >Remember my username.
+						</font>
+					</td>
+				</tr>
+				<tr>
+					<td align="right" class="t5wn">Password&nbsp;</td>
+					<td valign="bottom"><input type="password" name="password" style={height:21px;} value="" size="30" maxlength="20"></td>
+					<td><img src="/s.gif" width="240" height="30"></td>
+				</tr>
+				<tr>
+					<td><img src="/s.gif" width="220" height="14"></td>
+					<td colspan="2" class="error-msg">
+						
+					</td>
+				</tr>
+				<tr>
+					<td><img src="/s.gif" width="220" height="56"></td>
+					<td colspan="2">
+						<!-- CAPTCHA:BEGIN -->
+				        
+		        			
+
+
+
+
+
+<script type="text/javascript">
+function gGetElementById(s) {
+	var obj = (document.getElementById ? document.getElementById(s): document.all[s]);
+	return ((obj == null) ? false : obj);
+}
+
+function playCaptcha() {
+  var wavURL    = "/mp/captcha/voice/img_017.wav";
+  var embedCode = '<EMBED SRC=' + wavURL + ' HIDDEN="true" AUTOSTART="true" />';
+  gGetElementById("playAudio").innerHTML = "";
+  gGetElementById("playAudio").innerHTML = embedCode;
+}
+</script>
+<input type="hidden" name="captchaID" value="fed`cfaebf`dc>:0gf`">
+<table width="430" height="56" cellspacing="0" cellpadding="0" border="0">
+	<tr>
+		<td width="190" class="t5wn">Enter the text shown in the box.</td>
+		<td width="240" rowspan="2" align="left">
+			<img src="/mp/captcha/image/img_017.jpg" width="131" height="39">
+		</td>
+	</tr>
+	<tr>
+		<td width="190" valign="bottom">
+			<input type="text" name="captcha_response"><a href="javascript:playCaptcha();"><img src="/mp/captcha/accessibility.gif" border="0" align="top" width="23" height="24" alt="Listen and type the numbers you hear"></a>
+		</td>
+	</tr>
+	<tr>
+		<td width="430" colspan="2" class="error-msg">
+			
+			<img src="/s.gif" width="430" height="14">
+			
+		</td>
+	</tr>
+</table>
+<div id="playAudio"></div>
+				        
+						<!-- CAPTCHA:END -->
+					</td>
+				</tr>
+			</table>
+			</form>
+		</td>
+	</tr>
+	<!-- LOGIN FORM:END -->
+	<!-- LOGIN LEGAL COPY:BEGIN -->
+	<tr>
+		<td height="50">
+			<table width="650" cellspacing="0" cellpadding="0" border="0">
+				<tr>
+					<td><img src="/s.gif" width="60" height="50"></td>
+					<td width="530" class="lptn">By clicking "sign in" I agree that I am at least 18 years old, I have 
+				entered my own username and password, and I have read and agreed to the 
+				terms and conditions of the <A class=lptb href="http://www.sirius.com/serviceterms" 
+				target=_blank>SIRIUS Satellite Radio</A> service and <A class=lptb 
+				href="http://www.sirius.com/sirterms" target=_blank>SIRIUS Internet Radio</A>.</td>
+					<td><img src="/s.gif" width="60" height="50"></td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+	<!-- LOGIN LEGAL COPY:END -->
+	<!-- SIGN-IN BUTTON:BEGIN -->
+	<tr>
+		<td align="center">
+			<a href="javascript: validateEmail(document.loginForm.username.value);">
+				<img src="/mp/i/login/signin_button.gif" width="105" height="21" alt="sign in">
+			</a>
+		</td>
+	</tr>
+	<!-- SIGN-IN BUTTON:END -->
+	<!-- FORGOT PASSWORD:BEGIN -->
+	<tr>
+		<td height="30">
+			<table width="650" height="30" cellspacing="0" cellpadding="0" border="0">
+				<tr>
+					<td width="370" align="right">
+						<font class="lptn">Forgot your password? I am a:&nbsp;</font>
+					</td>
+					<td width="280">
+						<a href="/sirius/servlet/MediaPlayer?activity=forgotPassword"><font class="lptb">Guest&nbsp;&nbsp;</font><img src="/mp/i/icn/icn-arrow-blue.gif"></a>
+					</td>
+				</tr>
+				<tr>
+					<td width="370"><img src="/s.gif" width="370" height="14"></td>
+					<td width="280"><a href="https://home.sirius.com/webCUWI/ForgotPasswordMP.aspx"><font class="lptb">Subscriber&nbsp;&nbsp;</font><img src="/mp/i/icn/icn-arrow-blue.gif"></a></td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+	<!-- FORGOT PASSWORD:END -->
+</table>
+<form name="guestLoginForm1" action="/sirius/servlet/MediaPlayerLogin/guest" method="post">
+	<input type="hidden" name="activity" value="login">
+	<input type="hidden" name="type" value="guest">
+	<input type="hidden" name="encryptedPassword" value="">
+	<input type="hidden" name="loginForm" value="guest">
+	<input type="hidden" name="stream" value="">
+	<input type="hidden" name="token" value="8e3ee06a7a357012c41b41812b2b7f36">
+	<input type="hidden" name="username" value="">
+	<input type="hidden" name="captchaID" value="">
+	<input type="hidden" name="captcha_response" value="">
+	<input type="hidden" name="rememberMe" value="">
+</form>
+<form name="subLoginForm1" action="/sirius/servlet/MediaPlayerLogin/subscriber" method="post">
+	<input type="hidden" name="activity" value="login">
+	<input type="hidden" name="type" value="subscriber">
+	<input type="hidden" name="password" value="">
+	<input type="hidden" name="loginForm" value="subscriber">
+	<input type="hidden" name="stream" value="">
+	<input type="hidden" name="token" value="8e3ee06a7a357012c41b41812b2b7f36">
+	<input type="hidden" name="playerType" value="full">
+	<input type="hidden" name="username" value="">
+	<input type="hidden" name="captchaID" value="">
+	<input type="hidden" name="captcha_response" value="">
+	<input type="hidden" name="rememberMe" value="">
+</form>
+  		</td>
+  	</tr>
+  	<!-- LOGIN FORM:END -->
+	<!-- LOGIN PAGE BANNER:BEGIN -->
+	<tr>
+		<td height="130">
+			
+
+
+
+
+<!-- LOGIN PAGE BANNER:BEGIN -->
+<table width="650" height="130" cellspacing="0" cellpadding="0" border="0">
+	<tr>
+		<td colspan="3"><img src="/s.gif" width=650" height="3"></td>
+	</tr>
+	<tr>
+		<td><img src="/s.gif" width="60" height="2"></td>
+		<td width="530" class="bg-row-blue"></td>
+		<td><img src="/s.gif" width="60" height="2"></td>		
+	</tr>
+	<tr>
+		<td colspan="3"><img src="/s.gif" width="650" height="3"></td>
+	</tr>
+	<tr>
+		<td width="60"><img src="/s.gif" width="60" height="122"></td>
+		<td width="530">
+			<table width="530" height="122" cellspacing="0" cellpadding="0" border="0">
+				<tr>
+					<td>
+						<table width="264" height="100" cellspacing="0" cellpadding="0" border="0">
+							
+							<tr>
+							<td>
+								<a href="/sirius/servlet/MediaPlayerRegistration"><font class="t5wb">Try SIRIUS FREE for 3 days.</font></a>
+							</td>
+						</tr>
+						<tr>
+							<td class="t5wn">Sign up using your email address to get a FREE 3 day online trial.</td>
+						</tr>
+						<tr>
+							<td><img src="http://www.sirius.com/s.gif" width="264" height="10"></td>
+						</tr>
+						<tr>
+							<td valign="top"><a href="/sirius/servlet/MediaPlayerRegistration"><font class="t5wb">start listening for free&nbsp;&nbsp;</font><img src="/mp/i/login/promos/icn-arrow-blue.gif"></a></td>
+						</tr>
+							
+						</table>
+					</td>
+					<td class="bg-col-blue"><img src="/s.gif" width="2" height="100"><!-- MIDDLE DOTTED VERTICAL LINE PLACE HOLDER --></td>
+					<td>
+						<table width="264" height="100" cellspacing="0" cellpadding="0" border="0">
+							
+							<tr>
+							<td rowspan="3"><img src="http://www.sirius.com/s.gif" width="5" height="100"></td>
+							<td>
+								<a href="javascript:openWindow('http://www.sirius.com/siriusinternetradio');"><font class="t5wb">Get SIRIUS Internet Radio today.</font></a>
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2" class="t5wn">
+								Our premium audio quality offering with over 85 channels of 100% commercial-free music, news, comedy & talk radio.
+							</td>
+						</tr>
+						<tr>
+							<td valign="bottom">
+								<a href="javascript:openWindow('http://www.sirius.com/siriusinternetradio');"><font class="t5wb">find out more.&nbsp;&nbsp;</font><img src="/mp/i/login/promos/icn-arrow-blue.gif"></a>
+							</td>
+							<td align="right">
+								<a href="javascript:openWindow('http://www.sirius.com/siriusinternetradio');"><img src="/mp/i/login/promos/sirlogo.gif"></a>
+							</td>
+						</tr>
+							
+						</table>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="3"><img src="/s.gif" width="530" height="22"></td>
+				</tr>
+			</table>
+		</td>
+		<td width="60"><img src="/s.gif" width="60" height="122"></td>		
+	</tr>
+</table>
+<!-- LOGIN PAGE BANNER:END -->
+		</td>
+	<tr>
+	<!-- LOGIN PAGE BANNER:END -->
+	<!-- COMMON FOOTER:BEGIN -->
+	<tr>
+		<td height="35">
+			
+<table width="650" height="35" cellspacing="0" cellpadding="0" border="0">
+	<tr>
+		<td><img src="/s.gif" width="650" height="35"></td>
+	</tr>
+</table>
+		</td>
+	</tr>
+	<!-- COMMON FOOTER:END -->
+</table>
+</body>
+</html>

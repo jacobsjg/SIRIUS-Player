@@ -1,0 +1,152 @@
+@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+
+
+
+/* MENU */
+
+#siriusplayer-rootmenu[label]
+{
+  -moz-binding: url(chrome://global/content/bindings/menu.xml#menu-menubar-iconic) !important;
+  list-style-image: url("chrome://siriusplayer/skin/sirius.ico");
+}
+
+#SiriusPlayer-Menu-SelectedChannel-Logo[channel="STOPPED"]
+{
+  display: none;
+}
+
+#SiriusPlayer-Menu-SelectedChannel-Logo,
+#SiriusPlayer-Menu-SelectedChannel-Logo:hover
+{
+  background-color: white;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-image: url(http://cdn.sirius.com/servlet/BlobServer?blobtable=ImageAsset&blobcol=urlimage&blobkey=id&blobwhere=1126670691681);
+  padding: 45px 100px 0 0;
+  /* display: block; */
+  display: none;
+}
+
+#SiriusPlayer-Menu-SelectedChannel,
+#SiriusPlayer-Menu-SelectedChannel:hover
+{
+  background-color: transparent;
+  color: black;
+  font-weight: bold;
+  display: block;
+}
+
+#SiriusPlayer-Menu-PlayStatus,
+#SiriusPlayer-Menu-PlayStatus:hover
+{
+  background-color: transparent;
+  color: darkgrey;
+  font-weight: bold;
+  display: block;
+}
+
+#SiriusPlayer-Menu-Stop[channel="STOPPED"]
+{
+  display: none;
+}
+
+#SiriusPlayer-Menu-SelectedChannel,
+#SiriusPlayer-Menu-SelectedChannel:hover
+{
+  background-color: transparent;
+  color: black;
+  font-weight: bold;
+  display: block;
+}
+
+.SiriusPlayer-Preset
+{
+  display: block;
+}
+
+.SiriusPlayer-Preset[data=""]
+{
+  display: none;
+}
+
+/* SIDEBAR */
+
+#siriusplayer-sidebar treechildren::-moz-tree-cell-text(playing)
+{
+  font-weight: bold;
+}
+
+#siriusplayer-sidebar treechildren::-moz-tree-row(updated)
+{
+  background-color: #FAFAFF;
+}
+
+#siriusplayer-sidebar treechildren::-moz-tree-cell-text(updated)
+{
+  font-style: italic;
+}
+
+#siriusplayer-sidebar-image
+{
+  cursor: pointer;
+}
+
+#siriusplayer-sidebar-content
+{
+  margin-left: 10px;
+}
+
+#siriusplayer-sidebar-buylink
+{
+  font: 10pt sans-serif;
+}
+
+#siriusplayer-sidebar-channelimage
+{
+  margin-right: 10px;
+}
+
+#siriusplayer-sidebar-channellabel
+{
+  font: 16pt sans-serif;
+}
+
+#siriusplayer-sidebar-titlelabel
+{
+  font: 14pt sans-serif;
+}
+
+#siriusplayer-sidebar-artistlabel
+{
+  font: 10pt sans-serif;
+}
+
+#siriusplayer-sidebar-legalnotagree-title
+{
+  font: 14pt sans-serif;
+  font-weight: bold;
+}
+
+#siriusplayer-sidebar-loggingin-title
+{
+  font: 14pt sans-serif;
+  font-weight: bold;
+}
+
+#siriusplayer-sidebar-badauth-title
+{
+  font: 14pt sans-serif;
+  font-weight: bold;
+}
+
+#siriusplayer-preferences-about-title
+{
+  font: 14pt sans-serif;
+  font-weight: bold;
+}
+
+#siriusplayer-sidebar-loggedout-title
+{
+  font: 14pt sans-serif;
+  font-weight: bold;
+}

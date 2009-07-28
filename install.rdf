@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RDF xmlns="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+ xmlns:em="http://www.mozilla.org/2004/em-rdf#">
+  <Description about="urn:mozilla:install-manifest">
+    <em:id>{A8208118-F761-47E2-A01F-4FB22AE08B5E}</em:id>
+    <em:name>SIRIUS Player</em:name>
+    <em:version>2.0.4</em:version>
+    <em:creator>Dusty Wilson</em:creator>
+    <em:description>Convenient player for the SIRIUS Satellite Radio Internet Streaming service.  (Unofficial)</em:description>
+    <em:homepageURL>http://www.siriusplayer.dustywilson.com/</em:homepageURL>
+    <em:aboutURL>chrome://siriusplayer/content/about.xul</em:aboutURL>
+    <em:optionsURL>chrome://siriusplayer/content/options.xul</em:optionsURL>
+    <em:targetApplication>
+      <Description>
+        <em:id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</em:id>
+        <em:minVersion>3.0</em:minVersion>
+        <em:maxVersion>3.1.*</em:maxVersion>
+      </Description>
+    </em:targetApplication>
+  </Description>
+</RDF>
