@@ -38,7 +38,7 @@ var siriusplayer = {
   {
     dump("SIRIUS Player initializing... ");
     siriusplayer.initialized = true;
-    siriusplayer.version = '2.0.5';
+    siriusplayer.version = '2.0.6';
     siriusplayer.passwordrealm = 'SIRIUS Player Login';
     siriusplayer.hiddenWindow = Components.classes["@mozilla.org/appshell/appShellService;1"].getService(Components.interfaces.nsIAppShellService).hiddenDOMWindow;
     siriusplayer.hiddenWindow.Components.classes["@mozilla.org/moz/jssubscript-loader;1"].getService(Components.interfaces.mozIJSSubScriptLoader).loadSubScript("chrome://siriusplayer/content/sirius_ping.js");
